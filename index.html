@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Save Your Balloon</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+</head>
+
+<body>
+    <main>
+        <div class="game-intro">
+            <img src="./images/player.png" alt="could not load the image" class="logoImg" />
+            <p>Save Your Balloon</p>
+            <br />
+            <p class="instructions">Instructions: Use the left and right arrow to control the car!</p>
+            <p>Player name: </p>
+            <button id="start-button">Start Game</button>
+        </div>
+
+        <div class="game-container">
+            <div class="stats">
+                <p>Your Score: <span id="your-score">0</span></p>
+                <p>Lives: <span id="lives">3</span></p>
+                <p>Highest Score: <span id="highest score">0</span></p>
+            </div>
+            <div class="game-screen"></div>
+
+        </div>
+
+        <div id="game-end">
+            <img src="./images/player" alt="" class="logoImg" />
+            <h1 class="blinkMe">Game Over</h1>
+            <br />
+            <button id="restart-button">Restart</button>
+        </div>
+    </main>
+
+</body>
+
+</html>

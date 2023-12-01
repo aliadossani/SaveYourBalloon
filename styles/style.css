@@ -1,0 +1,51 @@
+body {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+
+    /* background-image: linear-gradient(to bottom), url("images/backgroundcloud.png"); */
+    /* background-repeat: no-repeat; */
+    background-color: lightblue;
+}
+
+.game-intro {
+    padding: 20px 0px;
+}
+
+.game-intro p {
+    font-size: 18px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.instructions {
+    font-size: 10px;
+    color: red;
+}
+
+.logoImg {
+    width: 150px;
+}
+
+body button {
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 1.5px;
+    padding: 10px;
+    width: 300px;
+    border: 10px;
+    margin: 30px 10px;
+}
+
+.blinkMe {
+    animation: blinker 1s linear infinite;
+    color: red
+}
+
+@keyframes blinker {
+    20% {
+        opacity: 0;
+    }
+}
