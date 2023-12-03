@@ -2,29 +2,44 @@ body {
     padding: 0;
     margin: 0;
     text-align: center;
+    /* background-image: url(../images/backgroundcloud.png);
+    background-size: cover; */
 
-    /* background-image: linear-gradient(to bottom), url("images/backgroundcloud.png"); */
-    /* background-repeat: no-repeat; */
-    background-color: lightblue;
-}
-
-.game-intro {
-    padding: 20px 0px;
-}
-
-.game-intro p {
-    font-size: 18px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-
 }
+
+#game-intro {
+    padding: 30px 0px;
+    display: none;
+}
+
+.game-name {
+    font-size: 30px;
+    color: rgb(110, 8, 8);
+}
+
+
+.rules {
+    font-size: 20px;
+}
+
+.goal {
+    text-align: center;
+    list-style-position: inside;
+}
+
 
 .instructions {
-    font-size: 10px;
-    color: red;
+    font-size: 8px;
+    color: brown;
 }
 
 .logoImg {
-    width: 150px;
+    width: 100px;
+}
+
+.name {
+    padding-top: 50px;
 }
 
 body button {
@@ -32,16 +47,53 @@ body button {
     color: white;
     font-weight: bold;
     font-size: 20px;
-    border-radius: 1.5px;
+    border-radius: 3px;
     padding: 10px;
     width: 300px;
     border: 10px;
     margin: 30px 10px;
 }
 
+.stats {
+    display: flex;
+    justify-content: space-evenly;
+    color: brown;
+    font-weight: bold;
+}
+
+#game-container {
+    display: block;
+
+}
+
+#game-screen {
+    background-image: url("../images/backgroundcloud.png");
+    background-size: cover;
+    animation: slide 10s linear infinite;
+}
+
+@keyframes slide {
+    0% {
+        background-position: 0 -1000px;
+    }
+
+    95% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 50px;
+    }
+}
+
+#game-end {
+    display: none;
+}
+
 .blinkMe {
     animation: blinker 1s linear infinite;
-    color: red
+    color: red;
+    font-size: 20pxpx;
 }
 
 @keyframes blinker {
