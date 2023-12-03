@@ -10,44 +10,50 @@
 </head>
 
 <body>
-    <main>
-        <div id="game-intro">
-            <img src="./images/player.png" alt="could not load the image" class="logoImg" />
-            <p class="game-name">Save Your Balloon !</p>
-            <br />
-            <p class="rules">Objective: Move the Air Balloon using the arrow keys and make sure:
-            <ul class="goal">
-                <li>Get the fuel as it will increase
-                    your score by 10</li>
-                <li>Do not hit the Hailstones as it will loose your life by 1</li>
-            </ul>
-            </p>
+    <center>
+        <main class="screen-container">
+            <div id="game-intro">
+                <img src="./images/player.png" alt="could not load the image" class="logoImg" />
+                <p class="game-name">Save Your Balloon !</p>
+                <br />
+                <p class="rules">Objective: Move the Air Balloon using the arrow keys and make sure:
+                <ul class="goal">
+                    <li>Get the fuel as it will increase
+                        your score by 10</li>
+                    <li>Do not hit the Hailstones as it will loose your life by 1</li>
+                </ul>
+                </p>
 
-            <p class="name">Player name: </p>
-            <button id="start-button">Start Game</button>
-        </div>
-
-        <div id="game-container">
-            <div class="stats">
-                <p>Highest Score: <span id="highest score">0</span></p>
-                <p>Your Score: <span id="your-score">0</span></p>
-                <p>Lives: <span id="lives">3</span></p>
-            </div>
-            <div class="game-screen">
-
+                <p class="name">Player name: </p>
+                <button id="start-button">Start Game</button>
             </div>
 
-        </div>
+            <div id="game-container">
+                <div class="stats">
+                    <p>Highest Score: <span id="highest score">0</span></p>
+                    <p>Your Score: <span id="your-score">0</span></p>
+                    <p>Lives: <span id="lives">3</span></p>
+                </div>
+                <div class="game-screen">
+                </div>
 
-        <div id="game-end">
-            <img src="./images/player.png" alt="" class="logoImg" />
-            <h1 class="blinkMe">Game Over</h1>
-            <br />
-            <button id="restart-button">Restart</button>
-        </div>
-    </main>
-    <script type="text/javascript" src="./js/player.js"></script>
+            </div>
+
+            <div id="game-end">
+                <img src="./images/player.png" alt="" class="logoImg" />
+                <h1 class="blinkMe">Game Over</h1>
+                <br />
+                <button id="restart-button">Restart</button>
+            </div>
+        </main>
+
+    </center>
+
+    <script type=" text/javascript" src="./js/player.js"></script>
     <script type="text/javascript" src="./js/obstacle.js"></script>
+    <script type="text/javascript" src="./js/fuel.js"></script>
+    <script type="text/javascript" src="./js/game.js"></script>
+    <script type="text/javascript" src="./js/script.js"></script>
 </body>
 
 </html>
