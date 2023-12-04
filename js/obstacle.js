@@ -3,9 +3,8 @@ class Obstacle {
         this.gameScreen = gameScreen;
         this.width = 30;
         this.height = 30;
-        this.top = 100;
-        this.left = 100;
-
+        this.top = -100;
+        this.left = Math.random() * (400 - this.width);
         this.element = document.createElement("img");
         this.element.src = "../images/obstacle.png";
         this.element.style.position = "absolute";
@@ -15,5 +14,14 @@ class Obstacle {
         this.element.style.left = `${this.left}px`;
 
         this.gameScreen.appendChild(this.element);
+    }
+
+    move() {
+        this.top += 1;
+        if (this.top <= SCREEN_HEIGHT - this.height) {
+            this.element.style.top = `${this.top}px`;
+        } else {
+            this.element.style.display = "none";
+        }
     }
 }
