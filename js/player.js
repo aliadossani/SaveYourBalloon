@@ -15,6 +15,7 @@ class Player {
         this.element.style.height = `${this.height}px`;
         this.element.style.top = `${this.top}px`;
         this.element.style.left = `${this.left}px`;
+
         this.gameScreen.appendChild(this.element);
 
 
@@ -34,11 +35,34 @@ class Player {
         this.element.style.top = `${this.top}px`
     }
 
-    didCollideObtacle() {
+    didCollideObtacle(obstacle) {
+
+        const playerRect = this.element.getBoundingClientRect();
+        const obstacleRect = obstacle.element.getBoundingClientRect();
+
+        if (playerRect.left < obstacleRect.right &&
+            playerRect.right > obstacleRect.left &&
+            playerRect.top < obstacleRect.bottom &&
+            playerRect.bottom > obstacleRect.top) {
+            return true;
+        }
+        else {
+            return false;
+        }
 
     }
 
-    didCollideFuel() {
-
+    didCollideFuel(fuel) {
+        const playerRect = this.element.getBoundingClientRect();
+        const fuelRect = fuel.element.getBoundingClientRect();
+        if (playerRect.left < fuelRect.right &&
+            playerRect.right > fuelRect.left &&
+            playerRect.top < fuelRect.bottom &&
+            playerRect.bottom > fuelRect.top) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }

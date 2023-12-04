@@ -14,6 +14,7 @@ class Game {
         this.score = 0;
         this.highestScore = 0;
         this.lives = 3;
+        this.isGameOver = false;
     }
     startGame() {
         this.startScreen.style.display = "none";
@@ -21,26 +22,59 @@ class Game {
         this.player = new Player(this.gameScreen);
         this.gameLoop();
 
-        const obstacle = new Obstacle(this.gameScreen);
-        this.obstacles.push(obstacle);
-        this.obstacles.forEach((obstacle) => {
-            setInterval(() => {
-                obstacle.move();
-            }, 1);
-        })
-
-        const fuel = new Fuel(this.gameScreen);
-        this.fuels.push(fuel);
-        this.fuels.forEach((fuel) => {
-            setInterval(() => {
-                fuel.move();
-            }, 1);
-        })
-
     }
 
     gameLoop() {
         this.player.move();
+        //obstacle
+        this.obstacles.forEach((obstacle) => {
+            obstacle.move();
+            if (obstacle.top < SCREEN_HEIGHT) {
+                if (this.player.didCollideObtacle(obstacle)) {
+                    console.log("collision");
+                    obstacle.element.remove();
+                    this.obstacles.shift();
+                    this.lives -= 1;
+                    if (this.lives === 0) {
+                        this.isGameOver = true;
+                    }
+                }
+            } else {
+                this.score += 10;
+                obstacle.element.remove();
+                this.obstacles.shift();
+
+            }
+        });
+
+        if (this.animateId % 200 === 0) {
+            this.obstacles.push(new Obstacle(this.gameScreen))
+        }
+        //fuel
+        this.fuels.forEach((fuel) => {
+            fuel.move();
+            if (fuel.top < SCREEN_HEIGHT) {
+                if (this.player.didCollideObtacle(fuel)) {
+                    console.log("collision");
+                    fuel.element.remove();
+                    this.score += 100;
+                    this.fuels.shift();
+                }
+            }
+        });
+
+        if (this.animateId % 800 === 0) {
+            this.fuels.push(new Fuel(this.gameScreen))
+        }
+
+        if (this.isGameOver) {
+            this.gameScreen.style.display = "none";
+            this.endScreen.style.display = "block";
+        }
+
+
+        document.getElementById('your-score').innerText = this.score
+        document.getElementById('lives').innerText = this.lives
         this.animateId = requestAnimationFrame(() => this.gameLoop())
     }
 }
