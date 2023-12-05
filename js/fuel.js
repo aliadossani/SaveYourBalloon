@@ -7,7 +7,7 @@ class Fuel {
         this.left = Math.random() * (400 - this.width);
 
         this.element = document.createElement("img");
-        this.element.src = "../images/fuel.png";
+        this.element.src = "images/fuel.png";
         this.element.style.position = "absolute";
         this.element.style.width = `${this.width}px`;
         this.element.style.height = `${this.height}px`

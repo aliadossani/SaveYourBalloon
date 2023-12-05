@@ -6,7 +6,7 @@ class Obstacle {
         this.top = -100;
         this.left = Math.random() * (400 - this.width);
         this.element = document.createElement("img");
-        this.element.src = "../images/obstacle.png";
+        this.element.src = "images/obstacle.png";
         this.element.style.position = "absolute";
         this.element.style.width = `${this.width}px`;
         this.element.style.height = `${this.height}px`;
