@@ -16,7 +16,18 @@ class Game {
         this.lives = 3;
         this.isGameOver = false;
     }
+    // saveName() {
+    //     const getName = document.getElementById("name").value;
+
+    //     localStorage.setItem("playerName", getName);
+
+
+    //     this.startGame();
+
+
+    // }
     startGame() {
+
         this.startScreen.style.display = "none";
         this.gameScreen.style.display = "block";
         this.player = new Player(this.gameScreen);
@@ -70,6 +81,8 @@ class Game {
         if (this.isGameOver) {
             this.gameScreen.style.display = "none";
             this.endScreen.style.display = "block";
+            // const displayName = document.getElementById("displayName");
+            // displayName.textContent = `${getName}, you lose!`
         }
 
 

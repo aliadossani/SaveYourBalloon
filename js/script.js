@@ -1,11 +1,18 @@
 window.addEventListener("load", () => {
     const startButton = document.getElementById("start-button");
     console.log({ startButton });
+
+    const restartButton = document.getElementById("restart-button");
+    console.log({ restartButton });
     let game;
 
     startButton.addEventListener("click", () => {
         game = new Game();
         game.startGame();
+    })
+
+    restartButton.addEventListener("click", () => {
+        location.reload();
     })
 
     document.addEventListener("keydown", (event) => {
