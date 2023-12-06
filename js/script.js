@@ -3,10 +3,18 @@ window.addEventListener("load", () => {
     let game;
 
     const startButton = document.getElementById("start-button");
-    console.log({ startButton });
 
     const restartButton = document.getElementById("restart-button");
-    console.log({ restartButton });
+
+    const difficultyLevelRadio = document.querySelectorAll(".difficultyLevel");
+
+    difficultyLevelRadio.forEach(element => {
+        element.addEventListener('click', (event) => {
+            localStorage.setItem("difficultyLevel", event.target.value)
+        });
+
+
+    })
 
 
     startButton.addEventListener("click", () => {

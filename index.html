@@ -23,9 +23,17 @@
                     <li>Do not hit the Hailstones as it will loose your life by 1</li>
                 </ul>
                 </p>
+                <input type="radio" id="easy" class="difficultyLevel" name="level" value="500" checked="checked" />
+                <label for="easy">Easy</label>
+
+                <input type="radio" id="medium" class="difficultyLevel" name="level" value="250" />
+                <label for="medium">Medium</label>
+
+                <input type="radio" id="difficult" class="difficultyLevel" name="level" value="100" />
+                <label for="difficult">Difficult</label>
 
                 <p class="name">Player name:<input type="text" id="name" placeholder="your name" /> </p>
-                <button id="start-button" onclick="game.saveName()">Start Game</button>
+                <button id="start-button">Start Game</button>
             </div>
 
             <div id="game-container" class="game-container">
@@ -33,8 +41,10 @@
                     <p>Highest Score: <span id="highest-score">0</span></p>
                     <p>Your Score: <span id="your-score">0</span></p>
                     <p>Lives: <span id="lives">3</span></p>
+
                 </div>
                 <div class="game-screen">
+
                 </div>
 
             </div>
@@ -50,7 +60,8 @@
                 <button id="restart-button">Restart</button>
             </div>
         </main>
-
+        <audio id="obstacleCollision" src="audios/obstacle-collision.mp3"></audio>
+        <audio id="fuelCollision" src="audios/fuel-collision.mp3"></audio>
     </center>
 
     <script type=" text/javascript" src="./js/player.js"></script>

@@ -6,6 +6,10 @@ class Game {
         this.startScreen = document.getElementById("game-intro");
         this.gameScreen = document.getElementById("game-container");
         this.endScreen = document.getElementById("game-end");
+        this.audioForObstacle = document.getElementById('obstacleCollision');
+        this.audioForObstacle.playbackRate = 2;
+        this.audioForFuel = document.getElementById('fuelCollision');
+
         this.animateId = null;
         this.player = null;
         this.playerName = '';
@@ -45,6 +49,7 @@ class Game {
         localStorage.setItem("playerName", this.playerName);
 
     }
+
     startGame() {
         this.startScreen.style.display = "none";
         this.gameScreen.style.display = "block";
@@ -63,6 +68,9 @@ class Game {
             if (obstacle.top < SCREEN_HEIGHT) {
                 if (this.player.didCollideObtacle(obstacle)) {
                     console.log("collision");
+                    this.audioForObstacle.pause();
+                    this.audioForObstacle.currentTime = 0;
+                    this.audioForObstacle.play()
                     obstacle.element.remove();
                     this.lives -= 1;
                     if (this.lives <= 0) {
@@ -78,7 +86,8 @@ class Game {
         });
         this.obstacles = obstaclesToRemove;
 
-        if (this.animateId % 200 === 0) {
+        const difficultyLevel = localStorage.getItem("difficultyLevel") || 500;
+        if (this.animateId % difficultyLevel === 0) {
             this.obstacles.push(new Obstacle(this.gameScreen))
         }
         //fuel
@@ -87,10 +96,10 @@ class Game {
             fuel.move();
             if (fuel.top < SCREEN_HEIGHT) {
                 if (this.player.didCollideObtacle(fuel)) {
-                    console.log("collision");
                     fuel.element.remove();
                     this.score += 100;
-
+                    console.log(this.audioForFuel);
+                    this.audioForFuel.play();
                 } else {
                     fuelsToRemove.push(fuel);
                 }
