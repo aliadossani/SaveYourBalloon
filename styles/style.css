@@ -24,12 +24,15 @@ body {
 }
 
 .rules {
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .goal {
-    text-align: center;
+
+    font-size: 15px;
     list-style-position: inside;
+    padding: 10px 12px;
+
 }
 
 
@@ -43,7 +46,7 @@ body {
 }
 
 .name {
-    padding-top: 50px;
+    padding-top: 30px;
 }
 
 body button {
@@ -68,10 +71,34 @@ body button {
 #game-container {
     display: none;
 
+
 }
+
+/* .game-container {
+    background-image: url("../images/backgroundImage.jpg");
+    background-size: cover;
+    animation: slide 4s linear infinite;
+    width: 100%;
+    height: 650px;
+}
+
+@keyframes slide {
+    0% {
+        background-position: 0 -1000px;
+    }
+
+    95% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 50px;
+    }
+} */
 
 #game-end {
     display: none;
+    padding: 30px 0px;
 }
 
 .blinkMe {

@@ -25,12 +25,12 @@
                 </p>
 
                 <p class="name">Player name:<input type="text" id="name" placeholder="your name" /> </p>
-                <button id="start-button">Start Game</button>
+                <button id="start-button" onclick="game.saveName()">Start Game</button>
             </div>
 
-            <div id="game-container">
+            <div id="game-container" class="game-container">
                 <div class="stats">
-                    <p>Highest Score: <span id="highest score">0</span></p>
+                    <p>Highest Score: <span id="highest-score">0</span></p>
                     <p>Your Score: <span id="your-score">0</span></p>
                     <p>Lives: <span id="lives">3</span></p>
                 </div>
@@ -41,6 +41,9 @@
 
             <div id="game-end">
                 <img src="./images/player.png" alt="" class="logoImg" />
+                <br>
+                <p id="score"></p>
+                <p id="highest-score-end"></p>
                 <h1 class="blinkMe">Game Over</h1>
                 <p id="displayName"></p>
                 <br />
@@ -53,8 +56,9 @@
     <script type=" text/javascript" src="./js/player.js"></script>
     <script type="text/javascript" src="./js/obstacle.js"></script>
     <script type="text/javascript" src="./js/fuel.js"></script>
-    <script type="text/javascript" src="./js/game.js"></script>
+
     <script type="text/javascript" src="./js/script.js"></script>
+    <script type="text/javascript" src="./js/game.js"></script>
 </body>
 
 </html>
