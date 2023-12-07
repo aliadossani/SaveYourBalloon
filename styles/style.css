@@ -8,9 +8,9 @@ body {
 .screen-container {
     width: 400px;
     height: 650px;
-    background-image: url("../images/backgroundImage.jpg");
     background-size: auto;
     position: relative;
+    background-image: url("../images/backgroundImage.jpg");
 }
 
 #game-intro {
@@ -34,7 +34,6 @@ body {
     padding: 10px 12px;
 
 }
-
 
 .instructions {
     font-size: 8px;
@@ -64,37 +63,51 @@ body button {
 .stats {
     display: flex;
     justify-content: space-evenly;
-    color: brown;
+    color: #ffffff;
     font-weight: bold;
+    align-items: center;
 }
 
-#game-container {
+.stats .stats-section {
+    flex: 1;
+}
+
+.stats .lives-section {
+    font-size: xx-large;
+}
+
+.stats-section .score {
+    font-size: x-large;
+}
+
+.stats-section p {
+    margin: 10px;
+}
+
+.stats-section img {
+    width: 25px;
+}
+
+.game-container {
     display: none;
-
-
-}
-
-/* .game-container {
-    background-image: url("../images/backgroundImage.jpg");
+    background-image: url("../images/cloud.png");
     background-size: cover;
     animation: slide 4s linear infinite;
     width: 100%;
     height: 650px;
+    background-color: #40a0c8;
+    position: relative;
 }
 
 @keyframes slide {
     0% {
-        background-position: 0 -1000px;
-    }
-
-    95% {
         background-position: 0 0;
     }
 
     100% {
-        background-position: 0 50px;
+        background-position: 0 650px;
     }
-} */
+}
 
 #game-end {
     display: none;

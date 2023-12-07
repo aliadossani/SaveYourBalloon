@@ -6,16 +6,14 @@ window.addEventListener("load", () => {
 
     const restartButton = document.getElementById("restart-button");
 
+    localStorage.removeItem("difficultyLevel");
     const difficultyLevelRadio = document.querySelectorAll(".difficultyLevel");
 
     difficultyLevelRadio.forEach(element => {
         element.addEventListener('click', (event) => {
             localStorage.setItem("difficultyLevel", event.target.value)
         });
-
-
     })
-
 
     startButton.addEventListener("click", () => {
         game = new Game();
@@ -24,7 +22,13 @@ window.addEventListener("load", () => {
     });
 
     restartButton.addEventListener("click", () => {
-        location.reload();
+        // console.log(game);
+        // if (game) {
+        //     game.startScreen.style.display = "block";
+        //     game.endScreen.style.display = "none";
+        //     game.restartGame();
+        // }
+        location.reload()
     });
 
     document.addEventListener("keydown", (event) => {

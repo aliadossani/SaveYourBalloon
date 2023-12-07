@@ -9,6 +9,7 @@ class Player {
         this.directionY = 0;
 
         this.element = document.createElement("img");
+        this.element.id = "player"
         this.element.src = "images/player.png";
         this.element.style.position = "absolute";
         this.element.style.width = `${this.width}px`;
@@ -20,6 +21,12 @@ class Player {
 
 
     }
+
+    // removePlayer() {
+    //     // const player = document.getElementById(this.element.id)
+    //     // player.remove();
+    //     this.element.remove();
+    // }
 
     move() {
         const newLeft = this.left + this.directionX;

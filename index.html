@@ -15,7 +15,7 @@
         <main class="screen-container">
             <div id="game-intro">
                 <img src="./images/player.png" alt="could not load the image" class="logoImg" />
-                <p class="game-name">Save Your Balloon !</p>
+                <p class="game-name">Save Your Balloon!</p>
                 <br />
                 <p class="rules">Objective: Move the Air Balloon using the arrow keys and make sure:
                 <ul class="goal">
@@ -39,9 +39,19 @@
 
             <div id="game-container" class="game-container">
                 <div class="stats">
-                    <p>Highest Score: <span id="highest-score">0</span></p>
-                    <p>Your Score: <span id="your-score">0</span></p>
-                    <p>Lives: <span id="lives">3</span></p>
+                    <div class="stats-section">
+                        <p id="player-name">Player</p>
+                        <p id="your-score" class="score">0</p>
+                    </div>
+                    <div class="stats-section lives-section">
+                        <img src="images/player.png" class="user-avatar" />
+                        X
+                        <span id="lives">3</span>
+                    </div>
+                    <div class="stats-section">
+                        <p>High Score</p>
+                        <p id="highest-score" class="score">0</p>
+                    </div>
 
                 </div>
                 <div class="game-screen">

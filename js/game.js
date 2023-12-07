@@ -50,12 +50,18 @@ class Game {
 
     }
 
+    updatePlayerNameElement() {
+        const playerNameElement = document.getElementById("player-name");
+        playerNameElement.textContent = `${this.playerName}` || "Player";
+    }
+
     startGame() {
         this.startScreen.style.display = "none";
         this.gameScreen.style.display = "block";
         this.loadHighestScore();
         this.updateHighestScoreElement();
         this.player = new Player(this.gameScreen);
+        this.updatePlayerNameElement();
         this.gameLoop();
     }
 
@@ -121,7 +127,7 @@ class Game {
             if (this.score > this.highestScore) {
                 this.highestScore = this.score;
                 this.saveHighestScore();
-
+                this.updateHighestScoreElement();
             }
 
             const yourScore = document.getElementById("score");
@@ -129,18 +135,47 @@ class Game {
             yourScore.textContent = `Your Score:${this.score}`
 
             const displayName = document.getElementById("displayName");
-            if (this.playerName) {
-                displayName.textContent = `Better luck next time ${this.playerName}!`
-            } else {
-                displayName.textContent = `Better luck next time!`;
-            }
+            displayName.textContent = `Better luck next time, ${this.playerName || "Player"}!`
         } else {
             this.animateId = requestAnimationFrame(() => this.gameLoop())
         }
 
         document.getElementById('your-score').innerText = this.score
         document.getElementById('lives').innerText = this.lives
+        this.updatePlayerNameElement();
     }
 
+    // restartGame() {
 
+    //     // Remove existing obstacles and fuel
+    //     this.obstacles.forEach((obstacle) => {
+    //         obstacle.element.remove();
+    //     });
+    //     this.obstacles = [];
+
+    //     this.fuels.forEach((fuel) => {
+    //         fuel.element.remove();
+    //     });
+    //     this.fuels = [];
+
+    //     if (this.player) {
+    //         this.player.removePlayer();
+    //         this.player = null;
+    //     }
+
+    //     this.player = new Player(this.gameScreen);
+    //     this.player.element.style.top = `${SCREEN_HEIGHT - this.player.height - 20}px`;
+    //     this.player.element.style.left = `${(SCREEN_WIDTH - this.player.width) / 2}px`;
+    //     this.player.directionX = 0;
+    //     this.player.directionY = 0;
+    //     this.score = 0;
+    //     this.lives = 3;
+    //     this.isGameOver = false;
+
+    //     // Restart the game loop
+    //     this.gameLoop();
+    // }
 }
+
+
+
