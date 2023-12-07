@@ -3,7 +3,6 @@ window.addEventListener("load", () => {
     let game;
 
     const startButton = document.getElementById("start-button");
-
     const restartButton = document.getElementById("restart-button");
 
     localStorage.removeItem("difficultyLevel");
@@ -22,7 +21,6 @@ window.addEventListener("load", () => {
     });
 
     restartButton.addEventListener("click", () => {
-        // console.log(game);
         // if (game) {
         //     game.startScreen.style.display = "block";
         //     game.endScreen.style.display = "none";

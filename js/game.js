@@ -9,7 +9,6 @@ class Game {
         this.audioForObstacle = document.getElementById('obstacleCollision');
         this.audioForObstacle.playbackRate = 2;
         this.audioForFuel = document.getElementById('fuelCollision');
-
         this.animateId = null;
         this.player = null;
         this.playerName = '';
@@ -45,9 +44,7 @@ class Game {
 
     saveName() {
         this.playerName = document.getElementById("name").value;
-        console.log(this.playerName);
         localStorage.setItem("playerName", this.playerName);
-
     }
 
     updatePlayerNameElement() {
@@ -67,13 +64,13 @@ class Game {
 
     gameLoop() {
         this.player.move();
+
         //obstacle
         const obstaclesToRemove = [];
         this.obstacles.forEach((obstacle) => {
             obstacle.move();
             if (obstacle.top < SCREEN_HEIGHT) {
                 if (this.player.didCollideObtacle(obstacle)) {
-                    console.log("collision");
                     this.audioForObstacle.pause();
                     this.audioForObstacle.currentTime = 0;
                     this.audioForObstacle.play()
@@ -92,10 +89,12 @@ class Game {
         });
         this.obstacles = obstaclesToRemove;
 
+        //Frames according to the Difficulty Level selected
         const difficultyLevel = localStorage.getItem("difficultyLevel") || 500;
         if (this.animateId % difficultyLevel === 0) {
             this.obstacles.push(new Obstacle(this.gameScreen))
         }
+
         //fuel
         const fuelsToRemove = [];
         this.fuels.forEach((fuel) => {
@@ -104,7 +103,6 @@ class Game {
                 if (this.player.didCollideObtacle(fuel)) {
                     fuel.element.remove();
                     this.score += 100;
-                    console.log(this.audioForFuel);
                     this.audioForFuel.play();
                 } else {
                     fuelsToRemove.push(fuel);
@@ -122,20 +120,23 @@ class Game {
             this.endScreen.style.display = "block";
 
             this.score = document.getElementById("your-score").innerText;
-            console.log(this.score);
 
             if (this.score > this.highestScore) {
                 this.highestScore = this.score;
                 this.saveHighestScore();
                 this.updateHighestScoreElement();
+
+                const displayName = document.getElementById("displayName");
+                displayName.textContent = `You are the best, ${this.playerName || "Player"}!`
+            } else {
+                const displayName = document.getElementById("displayName");
+                displayName.textContent = `Better luck next time, ${this.playerName || "Player"}!`
             }
 
             const yourScore = document.getElementById("score");
             localStorage.getItem(yourScore);
             yourScore.textContent = `Your Score:${this.score}`
 
-            const displayName = document.getElementById("displayName");
-            displayName.textContent = `Better luck next time, ${this.playerName || "Player"}!`
         } else {
             this.animateId = requestAnimationFrame(() => this.gameLoop())
         }
@@ -145,36 +146,6 @@ class Game {
         this.updatePlayerNameElement();
     }
 
-    // restartGame() {
-
-    //     // Remove existing obstacles and fuel
-    //     this.obstacles.forEach((obstacle) => {
-    //         obstacle.element.remove();
-    //     });
-    //     this.obstacles = [];
-
-    //     this.fuels.forEach((fuel) => {
-    //         fuel.element.remove();
-    //     });
-    //     this.fuels = [];
-
-    //     if (this.player) {
-    //         this.player.removePlayer();
-    //         this.player = null;
-    //     }
-
-    //     this.player = new Player(this.gameScreen);
-    //     this.player.element.style.top = `${SCREEN_HEIGHT - this.player.height - 20}px`;
-    //     this.player.element.style.left = `${(SCREEN_WIDTH - this.player.width) / 2}px`;
-    //     this.player.directionX = 0;
-    //     this.player.directionY = 0;
-    //     this.score = 0;
-    //     this.lives = 3;
-    //     this.isGameOver = false;
-
-    //     // Restart the game loop
-    //     this.gameLoop();
-    // }
 }
 
 

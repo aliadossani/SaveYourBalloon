@@ -7,7 +7,6 @@ class Player {
         this.left = (SCREEN_WIDTH - this.width) / 2;
         this.directionX = 0;
         this.directionY = 0;
-
         this.element = document.createElement("img");
         this.element.id = "player"
         this.element.src = "images/player.png";
@@ -16,17 +15,8 @@ class Player {
         this.element.style.height = `${this.height}px`;
         this.element.style.top = `${this.top}px`;
         this.element.style.left = `${this.left}px`;
-
         this.gameScreen.appendChild(this.element);
-
-
     }
-
-    // removePlayer() {
-    //     // const player = document.getElementById(this.element.id)
-    //     // player.remove();
-    //     this.element.remove();
-    // }
 
     move() {
         const newLeft = this.left + this.directionX;
@@ -43,7 +33,6 @@ class Player {
     }
 
     didCollideObtacle(obstacle) {
-
         const playerRect = this.element.getBoundingClientRect();
         const obstacleRect = obstacle.element.getBoundingClientRect();
 
@@ -56,7 +45,6 @@ class Player {
         else {
             return false;
         }
-
     }
 
     didCollideFuel(fuel) {

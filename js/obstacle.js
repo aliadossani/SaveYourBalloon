@@ -12,7 +12,6 @@ class Obstacle {
         this.element.style.height = `${this.height}px`;
         this.element.style.top = `${this.top}px`;
         this.element.style.left = `${this.left}px`;
-
         this.gameScreen.appendChild(this.element);
     }
 

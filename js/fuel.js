@@ -5,16 +5,13 @@ class Fuel {
         this.height = 30;
         this.top = -100;
         this.left = Math.random() * (400 - this.width);
-
         this.element = document.createElement("img");
         this.element.src = "images/fuel.png";
         this.element.style.position = "absolute";
         this.element.style.width = `${this.width}px`;
         this.element.style.height = `${this.height}px`
-
         this.element.style.top = `${this.top}px`;
         this.element.style.left = `${this.left}px`;
-
         this.gameScreen.appendChild(this.element);
     }
 
@@ -25,6 +22,5 @@ class Fuel {
         } else {
             this.element.style.display = "none";
         }
-
     }
 }

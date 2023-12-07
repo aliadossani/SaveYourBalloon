@@ -7,34 +7,41 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Save Your Balloon</title>
     <link rel="stylesheet" href="./styles/style.css" />
-    <link rel="icon" type="image/x-icon" href="/images/player.png">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
 </head>
 
 <body>
     <center>
         <main class="screen-container">
             <div id="game-intro">
-                <img src="./images/player.png" alt="could not load the image" class="logoImg" />
-                <p class="game-name">Save Your Balloon!</p>
-                <br />
-                <p class="rules">Objective: Move the Air Balloon using the arrow keys and make sure:
+
+                <div class="header">
+                    <img src="./images/player.png" alt="could not load the image" class="logoImg" />
+                    <p class="game-name">Save Your Balloon!</p>
+                </div>
+
+                <p class="rules">Game Rules:
                 <ul class="goal">
-                    <li>Get the fuel as it will increase
-                        your score by 10</li>
-                    <li>Do not hit the Hailstones as it will loose your life by 1</li>
+                    <li>Use arrow keys to navigate the air balloon.</li>
+                    <li>Dodge hailstones to avoid losing lives.</li>
+                    <li>Collect fuel to boost your score.</li>
                 </ul>
                 </p>
-                <input type="radio" id="easy" class="difficultyLevel" name="level" value="500" checked="checked" />
-                <label for="easy">Easy</label>
 
-                <input type="radio" id="medium" class="difficultyLevel" name="level" value="250" />
-                <label for="medium">Medium</label>
+                <div class="level">
+                    <input type="radio" id="easy" class="difficultyLevel" name="level" value="500" checked="checked" />
+                    <label for="easy">Easy</label>
 
-                <input type="radio" id="difficult" class="difficultyLevel" name="level" value="100" />
-                <label for="difficult">Difficult</label>
+                    <input type="radio" id="medium" class="difficultyLevel" name="level" value="250" />
+                    <label for="medium">Medium</label>
 
-                <p class="name">Player name:<input type="text" id="name" placeholder="your name" /> </p>
-                <button id="start-button">Start Game</button>
+                    <input type="radio" id="difficult" class="difficultyLevel" name="level" value="100" />
+                    <label for="difficult">Difficult</label>
+                </div>
+
+
+                <p class="name">Player name: <input type="text" id="name" placeholder="your name" /> </p>
+                <button id="start-button">START GAME</button>
             </div>
 
             <div id="game-container" class="game-container">
@@ -67,8 +74,8 @@
                 <p id="highest-score-end"></p>
                 <h1 class="blinkMe">Game Over</h1>
                 <p id="displayName"></p>
-                <br />
-                <button id="restart-button">Restart</button>
+
+                <button id="restart-button">RESTART</button>
             </div>
         </main>
         <audio id="obstacleCollision" src="audios/obstacle-collision.mp3"></audio>

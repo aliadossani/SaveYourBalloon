@@ -2,7 +2,16 @@ body {
     padding: 0;
     margin: 0;
     text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: sans-serif;
+    color: rgb(98, 28, 28);
+    font-weight: bolder;
+}
+
+.header {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 5px;
 }
 
 .screen-container {
@@ -14,38 +23,43 @@ body {
 }
 
 #game-intro {
-    padding: 30px 0px;
-
+    padding: 10px;
 }
 
 .game-name {
-    font-size: 30px;
-    color: rgb(110, 8, 8);
+    font-size: 40px;
+    color: rgb(237, 231, 231);
+    font-weight: bolder;
+    font-family: fantasy;
+    text-shadow: rgb(255, 68, 0) 1px 0 10px;
 }
 
 .rules {
     font-size: 15px;
+    text-align: left;
+    padding-left: 10px;
 }
 
 .goal {
-
     font-size: 15px;
     list-style-position: inside;
-    padding: 10px 12px;
-
-}
-
-.instructions {
-    font-size: 8px;
-    color: brown;
+    padding: 0px 12px;
+    text-align: left;
+    padding-bottom: 20px;
 }
 
 .logoImg {
-    width: 100px;
+    width: 200px;
 }
 
 .name {
-    padding-top: 30px;
+    padding-top: 10px;
+}
+
+.level {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
 }
 
 body button {
@@ -58,6 +72,7 @@ body button {
     width: 300px;
     border: 10px;
     margin: 30px 10px;
+    text-shadow: #FC0 1px 0 10px;
 }
 
 .stats {
