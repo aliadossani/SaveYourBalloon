@@ -24,3 +24,5 @@ Save Your Balloon is an exciting 2D game where players control an air balloon, t
 - Collect fuel to increase your score.
 - Avoid hailstones to prevent losing lives.
 
+## Demo 
+https://aliadossani.github.io/SaveYourBalloon/
